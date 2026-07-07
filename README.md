@@ -72,6 +72,11 @@ Strongly recommended additions:
 - **Tokenizer consistency**: BM25 only works if queries are tokenized the same
   way `word_frequency` was built. Pass your ingestion tokenizer via the
   `tokenizer=` argument, or record the tokenizer name/version with the corpus.
+- **Swedish corpora**: use `retrieval.tokenize_sv.SwedishTokenizer` — it
+  stems (Snowball) and splits compounds ("felsökningsguide" also indexes as
+  "felsökning" + "guide") against a lexicon derived from your own corpus via
+  `build_lexicon()`. Persist the lexicon alongside the corpus and use the
+  same tokenizer instance at ingestion and query time.
 - **Embedding model version** in `metadata`: mixing vectors from different
   models silently breaks dense search.
 - **Filterable metadata** (document type, date, language, ACLs) if you will
