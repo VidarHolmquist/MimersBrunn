@@ -1,0 +1,2 @@
+snowballstemmer>=2.2
+pytest>=7.0 ; python_version >= "3.9"
